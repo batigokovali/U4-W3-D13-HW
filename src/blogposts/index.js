@@ -21,7 +21,7 @@ blogpostsRouter.get("/", async (req, res, next) => {
         console.log("req.query:", req.query)
         console.log("q2m:", q2m(req.query))
         const mongoQuery = q2m(req.query)
-        const blogposts = await BlogpostsModel.find(mongoQuery.criteria, mongoQuery.options.fields, mongoQuery.options.omit)
+        const blogposts = await BlogpostsModel.find(mongoQuery.criteria, mongoQuery.options.fields)
             .limit(mongoQuery.options.limit)
             .skip(mongoQuery.options.skip)
             .sort(mongoQuery.options.sort)
